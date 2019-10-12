@@ -398,7 +398,7 @@ namespace SenseNet.ContentRepository
                     var sourceNodeList = NodeQuery.QueryNodesByPath(templateRoot.Path, true).Nodes.ToList();
                     var first = sourceNodeList.FirstOrDefault();
 
-                    // we have to add the tenplate node manually because the query above does not return the root itself
+                    // we have to add the template node manually because the query above does not return the root itself
                     if (first == null || first.Id != templateRoot.Id)
                         sourceNodeList.Insert(0, templateRoot);
 
@@ -411,7 +411,7 @@ namespace SenseNet.ContentRepository
                 {
                     var expEntries = ctx.GetExplicitEntries(sourceNode.Id);
 
-                    // no need to do anyithing: no explicit entries and no inheritance break here
+                    // no need to do anything: no explicit entries and no inheritance break here
                     if (expEntries.Count == 0 && sourceNode.IsInherited)
                         continue;
 
@@ -475,7 +475,7 @@ namespace SenseNet.ContentRepository
                     var targetCts = NodeQuery.QueryNodesByPath(targetRoot.Path, true).Nodes.Select(Content.Create).ToList();
                     var first = targetCts.FirstOrDefault();
 
-                    // we have to add the tenplate node manually because the query above does not return the root itself
+                    // we have to add the template node manually because the query above does not return the root itself
                     if (first == null || first.Id != targetRoot.Id)
                         targetCts.Insert(0, Content.Create(targetRoot));
 
